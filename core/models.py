@@ -1,11 +1,10 @@
 from django.db import models
-from django.contrib.auth.models import AbstractBaseUser
-from .account_manager import UserManager
+from django.contrib.auth.models import User
 
 
-class Account(AbstractBaseUser):
+class Account(models.Model):
     about_me = models.TextField()
     love_lang = models.TextField()
-    objects = UserManager()
+    user = models.OneToOneField(User)
 
 

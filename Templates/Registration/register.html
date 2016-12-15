@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Регистрация пользователя{% endblock %}
+
+{% block content %}
+  <h1>Регистрация пользователя</h1>
+  <form  method="post">
+{% csrf_token %}
+    {% if form.error_dict %}
+      <p class="error">Пожалуйста исправьте нижеприведённые ошибки.</p>
+    {% endif %}
+      {{form}}
+    <input type="submit" value="Зарегистрировать" />
+  </form>
+{% endblock %}
